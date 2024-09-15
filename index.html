@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="src/sass/main.scss" />
+    <script type="module" defer src="src/js/controller.js"></script>
+
+    <title>forkify // Search over 1,000,000 recipes</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <img src="src/img/logo.png" alt="Logo" class="header__logo" />
+        <form class="search">
+          <input
+            type="text"
+            class="search__field"
+            placeholder="Search over 1,000,000 recipes..."
+          />
+          <button class="btn search__btn">
+            <svg class="search__icon">
+              <use href="src/img/icons.svg#icon-search"></use>
+            </svg>
+            <span>Search</span>
+          </button>
+        </form>
+
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <button class="nav__btn nav__btn--add-recipe">
+                <svg class="nav__icon">
+                  <use href="src/img/icons.svg#icon-plus-circle"></use>
+                </svg>
+                <span>Add recipe</span>
+              </button>
+            </li>
+            <li class="nav__item">
+              <button class="nav__btn nav__btn--bookmarks">
+                <svg class="nav__icon">
+                  <use href="src/img/icons.svg#icon-bookmark"></use>
+                </svg>
+                <span>Bookmarks</span>
+              </button>
+              <div class="bookmarks">
+                <ul class="bookmarks__list">
+                  <div class="message">
+                    <div>
+                      <svg>
+                        <use href="src/img/icons.svg#icon-smile"></use>
+                      </svg>
+                    </div>
+                    <p>
+                      No bookmarks yet. Find a nice recipe and bookmark it :)
+                    </p>
+                  </div>
+
+                  <!-- <li class="preview">
+                    <a class="preview__link" href="#23456">
+                      <figure class="preview__fig">
+                        <img src="src/img/test-1.jpg" alt="Test" />
+                      </figure>
+                      <div class="preview__data">
+                        <h4 class="preview__name">
+                          Pasta with Tomato Cream ...
+                        </h4>
+                        <p class="preview__publisher">The Pioneer Woman</p>
+                      </div>
+                    </a>
+                  </li> -->
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav__item">
+              <button class="nav__btn nav__btn--shopItems">
+                <svg class="nav__icon">
+                  <use href="src/img/icons.svg#icon-edit"></use>
+                </svg>
+                <span>Shop List</span>
+              </button>
+
+              <div class="shop">
+                <ul class="shop__list">
+                  <!-- <div class="shopItems"> -->
+                  <!-- <li class="shopItem">
+                      500 gr Mehl <span class="deleteShopItem"> x </span>
+                    </li> -->
+                  <!-- <li class="shopItem">2 Tomaten</li> -->
+                  <!-- </div> -->
+
+                  <div class="message">
+                    <svg>
+                      <use href="src/img/icons.svg#icon-smile"></use>
+                    </svg>
+                    <p>Nothing to buy yet.</p>
+                  </div>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="search-results">
+        <div class="abc hidden">sort A ➜ Z</div>
+        <div class="resAmount"></div>
+        <ul class="results">
+          <!-- 
+          <li class="preview">
+           -->
+        </ul>
+
+        <div class="pagination">
+          <!-- <button class="btn--inline pagination__btn--prev">
+          </button> -->
+        </div>
+
+        <p class="copyright">
+          &copy; Copyright by
+          <a
+            class="twitter-link"
+            target="_blank"
+            href="https://twitter.com/jonasschmedtman"
+            >Jonas Schmedtmann
+          </a>
+          <br />
+          [ Shop List, <br />
+          Kcal/Nutrition Data Call <br />
+          Delete Recipe <br />
+          Add Recipe: Add Ingredients, <br />
+          Sorting Recipes A->Z <br />
+          Displaying Amount of Search Results <br />
+          Displaying Number of Pages, <br />
+
+          by Lia A. ]
+        </p>
+      </div>
+
+      <div class="recipe">
+        <div class="message">
+          <div>
+            <svg>
+              <use href="src/img/icons.svg#icon-smile"></use>
+            </svg>
+          </div>
+          <p>Start by searching for a recipe or an ingredient. Have fun!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay hidden"></div>
+    <div class="add-recipe-window hidden">
+      <button class="btn--close-modal">&times;</button>
+      <form class="upload">
+        <div class="upload__column">
+          <h3 class="upload__heading">Recipe data</h3>
+          <label>Title</label>
+          <input required name="title" type="text" autocomplete="off" />
+          <label>URL</label>
+          <input required name="sourceUrl" type="text" autocomplete="off" />
+          <label>Image URL</label>
+          <input required name="image" type="text" autocomplete="off" />
+          <label>Publisher</label>
+          <input required name="publisher" type="text" autocomplete="off" />
+          <label>Prep time</label>
+          <input
+            required
+            name="cookingTime"
+            type="number"
+            placeholder="in minutes"
+          />
+          <label>Servings</label>
+          <input required name="servings" type="number" />
+        </div>
+
+        <div class="upload__column">
+          <h3 class="upload__heading">Ingredients</h3>
+          <div class="content">
+            <!-- <div class="input_inline">
+            <label> + </label>
+            <input
+              type="text"
+              required
+              name="ingredient-1"
+              placeholder="Description"
+            />
+            <input class="inputWidth" type="number" placeholder="Quantity" />
+            <input class="inputWidth" type="text" placeholder="Unit" />
+          </div> -->
+            <!-- <label>Ingredient 2</label> -->
+            <!-- <div class="input_inline">
+            <input type="text" name="ingredient-2" placeholder="Description'" />
+            <input type="number" placeholder="Quantity" />
+            <input type="text" placeholder="Unit" />
+          </div> -->
+            <div class="input_inline">
+              <label class="shopList"> 📑 </label>
+              <input
+                class="divDescription"
+                type="text"
+                required
+                name="ingr-description"
+                placeholder="Description"
+                autocomplete="off"
+              />
+              <input
+                class="inputWidth"
+                type="number"
+                step="0.25"
+                required
+                name="ingr-quantity"
+                placeholder="Quantity"
+              />
+              <input
+                list="units"
+                class="inputWidth"
+                name="ingr-unit"
+                type="text"
+                placeholder="Unit"
+                autocomplete="off"
+              />
+              <datalist id="units">
+                <option value="g"></option>
+                <option value="kg"></option>
+                <option value="ml"></option>
+                <option value="l"></option>
+                <option value="tsp"></option>
+                <option value="tbsp"></option>
+                <option value="cup"></option>
+                <option value="oz"></option>
+                <option value="lb"></option>
+              </datalist>
+            </div>
+          </div>
+          <div class="addIngr">+ add</div>
+        </div>
+
+        <button class="btn upload__btn">
+          <svg>
+            <use href="src/img/icons.svg#icon-upload-cloud"></use>
+          </svg>
+          <span>Upload</span>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

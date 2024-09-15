@@ -1,0 +1,264 @@
+.recipe {
+  background-color: $color-grey-light-1;
+
+  ///////////
+  // FIGURE
+  &__fig {
+    height: 32rem;
+    position: relative;
+    // transform: scale(1.04) translateY(-1px);
+    transform-origin: top;
+
+    &::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(
+        to right bottom,
+        $color-grad-1,
+        $color-grad-2
+      );
+      opacity: 0.6;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 20%) skewY(-6deg);
+    color: #fff;
+    font-weight: 700;
+    font-size: 3.25rem;
+    text-transform: uppercase;
+    width: 50%;
+    line-height: 1.95;
+    text-align: center;
+
+    span {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      padding: 1.3rem 2rem;
+      background-image: linear-gradient(
+        to right bottom,
+        $color-grad-1,
+        $color-grad-2
+      );
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      width: 70%;
+    }
+  }
+
+  ///////////
+  // DETAILS
+  &__details {
+    display: flex;
+    align-items: center;
+    padding: 7.5rem 8rem 3.5rem 8rem;
+  }
+
+  &__info {
+    font-size: 1.65rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-right: 4.5rem;
+    }
+  }
+
+  &__info-icon {
+    height: 2.35rem;
+    width: 2.35rem;
+    fill: $color-primary;
+    margin-right: 1.15rem;
+  }
+
+  &__info-data {
+    margin-right: 0.5rem;
+    font-weight: 700;
+  }
+
+  &__info-buttons {
+    display: flex;
+    margin-left: 1.6rem;
+    transform: translateY(-1px);
+  }
+
+  &__user-generated {
+    background-color: darken($color-grey-light-2, 2%);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 6rem;
+    width: 4rem;
+    border-radius: 10rem;
+    margin-left: auto;
+    margin-right: 1.75rem;
+
+    svg {
+      height: 2.25rem;
+      width: 2.25rem;
+      fill: $color-primary;
+    }
+  }
+
+  ///////////
+  // INGREDIENTS
+  &__ingredients {
+    padding: 5rem 8rem;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    background-color: $color-grey-light-2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__ingredient-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 3rem;
+    list-style: none;
+  }
+
+  &__ingredient {
+    display: flex;
+    flex-direction: row;
+    align-items: normal;
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: $color-primary;
+    margin-right: 1.1rem;
+    flex: 0 0 auto;
+    margin-top: 0.1rem;
+  }
+
+  &__quantity {
+    margin-right: 0.5rem;
+    flex: 0 0 auto;
+  }
+
+  ///////////
+  // DIRECTIONS
+  &__directions {
+    padding: 5rem 10rem;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__directions-text {
+    font-size: 1.7rem;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    color: $color-grey-dark-2;
+  }
+
+  &__publisher {
+    font-weight: 700;
+  }
+}
+
+.nutri-list {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 160;
+  height: fit-content;
+  background-image: linear-gradient(
+    to right bottom,
+    $color-grey-light-2,
+    $color-grey-light-1
+  );
+  border-left: 1 solid $color-grey-light-3;
+  transform: translate(-23%, -20%) skewY(-6deg);
+  text-transform: uppercase;
+  font-size: 0.9em;
+  transition: 0.7s;
+}
+.resultKcalPercent {
+  display: flex;
+  flex-direction: column;
+  padding: 7;
+  margin-right: 10;
+  font-size: smaller;
+}
+
+.resultKcal {
+  border-bottom: 1 solid #fff;
+  font-size: 1.1em;
+  margin-bottom: 2;
+}
+.closeNutri {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+  line-height: 1;
+  padding: 3;
+  right: 0;
+  border-left: 1px solid #fff;
+}
+
+.closeNutri:hover {
+  opacity: 1;
+  transform: scale(1.2);
+  color: $color-grey-dark-2;
+}
+
+.flame {
+  background-image: url('../img/kcal.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 40;
+  height: 40;
+  margin-bottom: 10;
+  opacity: 0.7;
+}
+
+.user_delete {
+  background-image: url('../img/delete.png');
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 4rem;
+  height: 4rem;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.3s;
+  scale: 0.9;
+}
+
+.user_delete:hover {
+  opacity: 1;
+  scale: 0.8;
+  border-right: 1 solid $color-primary;
+  border-left: 1 solid $color-primary;
+  border-radius: 20;
+}
