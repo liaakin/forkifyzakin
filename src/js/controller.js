@@ -11,9 +11,9 @@ import shoppingListView from './views/shoppingListView.js';
 import nutriView from './views/nutriView.js';
 import 'core-js/stable'; // For polyfills (ES6+ features support in older browsers)
 import 'regenerator-runtime/runtime'; // For async/await support in older browsers
-import { Fraction } from 'fractional'; // Utility to work with fractions
+// import { Fraction } from 'fractional'; // Utility to work with fractions
 import previewView from './views/previewView.js';
-
+import fracty from 'fracty';
 // Stop page reload in development mode (Hot Module Replacement)
 if (module.hot) {
   module.hot.accept();
