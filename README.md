@@ -44,15 +44,10 @@ Forkify is a recipe search application that allows users to search for recipes, 
 - Click on a recipe from the results to view details.
 - Adjust the number of servings as needed.
 - Bookmark your favorite recipes to view them later.
+- Add ingredients to shop list.
+- Add new recipes.
+- Delete recipes you added.
+- Sort recipes from A-Z.
 
-## Contributing
 
-Feel free to submit issues or pull requests to improve the app. Contributions are always welcome!
 
-## License
-
-This project is licensed under the MIT License.
-
----
-
-Happy cooking! 🍳
